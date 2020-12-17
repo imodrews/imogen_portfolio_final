@@ -2,6 +2,8 @@ import React, { useState } from "react";
 
 import '../App.css';
 import image from "../images/pokeHomepage.png";
+import gouda_father from "../images/the-gouda-father.png";
+
 
 
 import { Typography, Box, CardMedia, Avatar, Grid} from '@material-ui/core';
@@ -100,6 +102,18 @@ introBox: {
         stackPosition: {
             position: "relative"
 
+        },
+        portfolioPosition: {
+            display: "flex",
+            flexDirection: "row",
+            
+        },
+        pokeImage: {
+            padding: "10px"
+
+        },
+        goudaFatherImage: {
+            padding: "10px"
         }
 
 
@@ -119,7 +133,7 @@ const classes = useStyles();
   
 return(
 <>
-<Grid >
+<Grid>
      
     <Box className={classes.hero}>
         <Box>
@@ -139,36 +153,27 @@ return(
        <Box>
           <Typography className={classes.projectText}>My Projects</Typography>
       </Box>
-      <Box>
+<Box className={classes.portfolioPosition}>
+      <Box className={classes.pokeImage}>
     <a href="https://pokemonwbs.netlify.app/">
       <img
         src={image}
-        onMouseEnter={() => setIsShown(true)}
-        onMouseLeave={() => setIsShown(false)}
+        width="300px"
+      />
+    </a>
+      </Box>
+    <Box className={classes.goudaFatherImage}>
+    <a href="https://the-gouda-father.netlify.app/">
+      <img
+        src={gouda_father}
         width="300px"
         
       />
     </a>
       </Box>
-      <Box className={classes.stackPosition}>
-      {isShown && <div className={classes.positionHover}>
-      Stack:
-      <br />
-      React 
-      <br />
-      Material UI
-      <br />
-      JavaScript
-      </div>}
-    </Box>
 </Box>
     </Box>
-    
-
-
-
-
-
+    </Box>
 </Grid>
 
 

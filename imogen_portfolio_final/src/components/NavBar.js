@@ -1,55 +1,154 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { makeStyles } from "@material-ui/styles";
+import Drawer from "@material-ui/core/Drawer";
+import {
+    AppBar,
+    Toolbar,
+    ListItem,
+    IconButton,
+    ListItemText,
+    ListItemIcon,
+    Divider,
+    List,
+    Typography,
+    Box
+} from "@material-ui/core"
+import {  Home,  ContactMail } from "@material-ui/icons";
+import FormatListBulletedIcon from '@material-ui/icons/FormatListBulleted';
+import MenuIcon from '@material-ui/icons/Menu';
 
-import { AppBar, Toolbar, Button, Typography, Container } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles"
-import '../App.css';
 
-import Menu from './Menu';
 
-const font =  "'Yeseva One', cursive";
 
-const useStyles = makeStyles(theme => ({
-    appBar: {
-        width: '100%',
+import "../App.css";
+// import a nice picture for the avatar
+
+// import HomePage from "../pages/HomePage";
+// import CV from "../pages/CV";
+// import Contact from "./Contact";
+
+
+
+const useStyles = makeStyles(theme =>({
+    nav:{
+        backgroundColor: "black",
+        height: "65px",
     },
-
-  menuDisplay: {
-      marginLeft: '20px',
-
-  },
-    
-    name: {
-       
-        fontFamily: font,
-        textWeight: "bold",
-        fontSize: '40px',
-        color: "primary",
-        letterSpacing: "2px",
-        width: "150px",
-        textAlign: "center",
-        marginRight: '70%'
+    backButton: {
+        backgroundColor: "BE0D73"
+    },
+    arrow: {
+        color: "white"
+    },
+    menuSliderContainer: {
+        width: 250,
+        height: "40rem",
         
     },
-    
+    avatar: {
+        display: "block",
+        margin: "0.5rem",
+        width: 190,
+        height: 230
+    },
+    lsText: {
+        color: "black",
+        fontFamily: "font1",
+    },
+    lsIcon: {
+        color: "black",
+        
+    },
+    avatar2: {
+        display: "block",
+        margin: "0.5rem",
+        width: 190,
+        height: 230
+    },
+    words:{
+        fontFamily: "'Oswald', sans-serif",
+    }
 }));
+
+const menuItems = [
+    {
+        listIcon: <Home />,
+        listText: "Home",
+        listPath: "/"
+    },
+    {
+        listIcon: <FormatListBulletedIcon />,
+        listText: "CV",
+        listPath: "/cv"
+    },
+    {
+        listIcon: <ContactMail />,
+        listText: "Contact",
+        listPath: "/contact"
+        
+    },
+]
+
+
+
 
 
 const NavBar = () => {
+const [slide, setSlide] =useState({
+    left: false
+});
+
+const toggleSlider = (slider, open) => () => {
+    setSlide({...slide, [slider]: open})
+}
+
+
 
 const classes = useStyles();
 
-    return(
-    
-        <AppBar position="static" className={classes.appBar} color="secondary">
-            <Toolbar>
-            <Container className={classes.menuDisplay}>
-                <div>{<Menu />} </div>
-                </Container>
-                
-                
-            </Toolbar>
-        </AppBar>
-    )
-}
 
-export default NavBar; 
+const slideList = slider => (
+    <Box component="div" className={classes.menuSliderContainer} onClick={toggleSlider(slider, false)}>
+            {/* <Avatar className={classes.avatar2} src={newpic} alt="picture of ellesia" variant="rounded"/> */}
+            <Divider />
+            <List>
+            {menuItems.map((lsItem, key)=> (
+                    <ListItem button key={key} component={Link} to={lsItem.listPath}>
+                        <ListItemIcon className={classes.lsIcon}>
+                            {lsItem.listIcon}
+                        </ListItemIcon>
+                        <ListItemText className={classes.lsText} primary={lsItem.listText}/>
+                       
+                    </ListItem>
+            ))}   
+            </List>
+        </Box>
+)
+
+    return(
+    <>
+        
+        <Box component="nav">
+            <AppBar position="relative" className={classes.nav}>
+                <Toolbar>
+                    <IconButton onClick={toggleSlider("left", true)} className={classes.backButton}>
+                        <MenuIcon className={classes.arrow}/>
+                    </IconButton>
+                    <Typography color="white"  variant="h5" fontFamily="'Oswald', sans-serif" className={classes.words}>
+                        Menu
+                    </Typography>
+                    <Drawer open={slide.left} anchor="right" onClose={toggleSlider("left", false)}>
+                        {slideList("left")}
+                        {/* <Footer/> */}
+                    </Drawer>
+                </Toolbar>
+            </AppBar>
+        </Box>
+    </>
+    )
+};
+
+
+
+export default NavBar;
