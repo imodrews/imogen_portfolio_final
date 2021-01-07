@@ -66,7 +66,7 @@ introBox: {
        
             fontFamily:  "'Yeseva One', cursive",
             textWeight: "bold",
-            fontSize: '40px',
+            fontSize: '60px',
             color: "primary",
             letterSpacing: "2px",
             // width: "150px",

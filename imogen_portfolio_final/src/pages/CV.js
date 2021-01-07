@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Document, Page, pdfjs } from "react-pdf";
 import { Box } from "@material-ui/core";
-import imoCV from "../Docs/Imo CV web development 2.pdf";
+import imoCV from "../Docs/Imogen_Drews_CV_January.pdf";
 import { makeStyles } from "@material-ui/core/styles"
 
 
