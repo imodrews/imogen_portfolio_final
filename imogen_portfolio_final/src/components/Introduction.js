@@ -1,13 +1,16 @@
 import React, { useState } from "react";
 
-import '../App.css';
-import image from "../images/pokeHomepage.png";
-import gouda_father from "../images/the-gouda-father.png";
+import Projects from "./Projects";
 
 
 
-import { Typography, Box, CardMedia, Avatar, Grid} from '@material-ui/core';
+
+
+import { Typography, Box, CardMedia, Avatar, Grid, Button} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
+import { CssBaseline } from "@material-ui/core";
+
+
 
 import profilePic from '../images/copyprofile.jpg';
 import '../App.css';
@@ -25,7 +28,7 @@ introBox: {
         color: 'white',
         fontSize: '30px',
         textAlign: 'center',
-        fontFamily: "'Oswald', sans-serif",
+        fontFamily: "'Noto Sans HK', sans-serif;",
         width: "500px",
         marginBottom: "20px"
         
@@ -43,13 +46,15 @@ introBox: {
         
         width: '200px',
         height: '200px',
-        marginBottom: "50px"
+        marginBottom: "20px",
+        marginTop: "20px"
     },
 
         hero: {
-            backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1422360902398-0a91ff2c1a1f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1316&q=80')`,
-            height: "800px",
+            backgroundImage: `linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://tile.loc.gov/storage-services/service/pnp/ppmsca/57400/57452v.jpg')`,
+            height: "550px",
             backgroundPosition: "center",
+            backgroundColor: 'black',
             backgroundRepeat: "no-repeat",
             backgroundSize: "cover",
             position: "relative",
@@ -64,70 +69,31 @@ introBox: {
         },
         name: {
        
-            fontFamily:  "'Yeseva One', cursive",
-            textWeight: "bold",
-            fontSize: '60px',
+            fontFamily:  "'Oswald', sans-serif",
+            // textWeight: "bold",
+            fontSize: '30px',
             color: "primary",
-            letterSpacing: "2px",
+            letterSpacing: "1px",
             // width: "150px",
             textAlign: "center",    
-            bottomPadding: "20px"
+            // bottomPadding: "150px",
+            width: "260px"
 
         },
-        portfolio: {
-            bottomPadding: "10px"
-            
+        button: {
+            bottomMargin: "100px",
+            color: "white",
+            fontFamily:  "'Oswald', sans-serif",
         },
-        positionHover: {
-            
-            // position: "relative",
-            // bottom: "20px",
-            // right: "20px",
-            //  backgroundColor: "black",
-            //  color: "white",
-            //  paddingLeft: "30px",
-            // paddingRight: "200px",
-            // opacity: "50%",
-          
-            // bottomPadding: "100px",
-            fontSize: "20px",
-            fontFamily: "'Oswald', sans-serif",
-        },
-        projectText: {
-            fontFamily: "'Oswald', sans-serif",
-            fontSize: "30px",
-            margin: "10px",
-            textAlign: 'center'
-        },
-        stackPosition: {
-            position: "relative"
-
-        },
-        portfolioPosition: {
-            display: "flex",
-            flexDirection: "row",
-            
-        },
-        pokeImage: {
-            padding: "10px"
-
-        },
-        goudaFatherImage: {
-            padding: "10px"
+        projects: {
+            padding: "50",
         }
-
-
-
-
 
     }));
 
 
 const Introduction = () => {
     const [isShown, setIsShown] = useState(false);
-
-
-
 
 const classes = useStyles();
   
@@ -137,11 +103,9 @@ return(
      
     <Box className={classes.hero}>
         <Box>
-        <Typography className={classes.name}>Imogen Drews</Typography>
+        <Typography className={classes.name} >Hi, my name is Imogen Drews and I am a Frontend Developer</Typography>
         </Box>
-        <Box>
-        <Typography className={classes.introduction} color="primary"> Aspiring Junior Web Developer with a love for design </Typography>
-        </Box>
+      
         <Box>
                 <Avatar
                 src={profilePic}
@@ -149,37 +113,12 @@ return(
                 className={classes.media}>
                 </Avatar>
        </Box>
-    <Box>
        <Box>
-          <Typography className={classes.projectText}>My Projects</Typography>
-      </Box>
-<Box className={classes.portfolioPosition}>
-      <Box className={classes.pokeImage}>
-    <a href="https://pokemonwbs.netlify.app/">
-      <img
-        src={image}
-        width="300px"
-      />
-    </a>
-      </Box>
-    <Box className={classes.goudaFatherImage}>
-    <a href="https://the-gouda-father.netlify.app/">
-      <img
-        src={gouda_father}
-        width="300px"
-        
-      />
-    </a>
-      </Box>
-</Box>
-    </Box>
+            {/* <Button className={classes.button}>View my projects</Button> */}
+        </Box>
+      
     </Box>
 </Grid>
-
-
-
-
-
 </>
 )
 }

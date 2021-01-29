@@ -12,14 +12,16 @@ import '../App.css';
 const useStyles = makeStyles(theme => ({
 
     textField: {
-        color: "#ffffcc'",
+        color: "#000000",
         fontFamily: "'Oswald', sans-serif"
     },
     header: {
         fontFamily: "'Oswald', sans-serif",
         marginTop: "20px",
     },
-    position: {
+    formPosition: {
+        display: 'flex',
+        alignItems: 'center'
        
     }
   
@@ -45,9 +47,9 @@ const Contact = () => {
         return(
             
 
-               <Box component="div" style={{background:"white", height:"70vh"}}>
-                    <Grid container justify="center">
-                        <Box component="form" onSubmit={sendEmail} className={classes.form} color="primary">
+               <Box component="div" style={{background:"white", height:"90vh"}} className={classes.formPosition}>
+                    <Grid container justify="center" align="center">
+                        <Box component="form" onSubmit={sendEmail} className={classes.form} color="secondary">
                             <Typography variant="h3" color="secondary" className={classes.header} >
                                 Lets get in touch! 
                             </Typography>
@@ -58,6 +60,8 @@ const Contact = () => {
                                 margin="dense"
                                 size="medium"
                                 name="name"
+                                fontFamily ="'Oswald', sans-serif"
+                                
                                 
                             />
                             <br />
@@ -67,6 +71,7 @@ const Contact = () => {
                                 margin="dense"
                                 size="medium"
                                 name="email"
+                                
                                
                             />
                             <br />
@@ -77,6 +82,8 @@ const Contact = () => {
                                 size="medium"
                                 name="number"
                                 
+                                
+                                
                             />
                             <br />
                             <TextField
@@ -85,9 +92,10 @@ const Contact = () => {
                                 margin="dense"
                                 size="medium"
                                 name="message"
+                             
                                 
                             />
-                            <Button type="submit" variant="filled" fullWidth={true} className={classes.button} endIcon={<SendIcon/>} color="primary">
+                            <Button type="submit" variant="filled" fullWidth={true} className={classes.button} endIcon={<SendIcon/>} color="secondary">
                                 Send
                             </Button>
                             </div>

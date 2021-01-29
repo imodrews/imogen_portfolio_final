@@ -12,7 +12,10 @@ const theme = createMuiTheme({
     },
   },
     typography: {
-      fontFamily: font1,
+      TextField: {
+        fontFamily: font1,
+        color: '#000000'
+      }
       }
 });
 
