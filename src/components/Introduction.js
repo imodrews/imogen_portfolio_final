@@ -111,7 +111,7 @@ return(
         <Box>
         <Typography className={classes.name} >UX/UI designer with a background in Frontend Development and Film</Typography>
         </Box>
-        <img src={profilePic} width='400px' height='400px'  />
+       
  
        <Box>
             {/* <Button className={classes.button}>View my projects</Button> */}

@@ -67,10 +67,7 @@ const Contact = () => {
                     of the field. 
                   
                 </Typography>
-                <Typography>
-                Number: 0151 127 31191
-                E-mail: imoleadrews@gmail.com
-                </Typography>
+                
                 </div>
                
               
